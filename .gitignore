@@ -5,3 +5,5 @@ dist/
 dist/
 build/
 *./log
+package-lock.json
+package.json
