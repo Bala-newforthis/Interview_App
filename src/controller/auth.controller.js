@@ -58,7 +58,6 @@ res.status(201).json ({
 })
 }   
 
-
 // login controller has been done 
 /**
  * @name  loginUserController
