@@ -89,7 +89,7 @@ async function loginUserController(req, res) {
         process.env.JWT_SECRET,
         {expiresIn: "1d" }
     )
-    res.cookie = ("token" , token)
+    res.cookie("token", token)
 
     res.status(200).json({
         message: "User loggedIn Successfully.",
@@ -110,7 +110,7 @@ async function loginUserController(req, res) {
 
 async function logoutUserController(req, res) {
     const token = req.cookies.token
-
+    
     if (token){
         await tokenBlacklistModel.create({ token })
     }
