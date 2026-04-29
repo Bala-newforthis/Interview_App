@@ -2,6 +2,7 @@ const userModel = require("../models/user.model")
 const bcrypt = require ("bcryptjs")
 const jwt = require("jsonwebtoken")
 
+
 /**
  * @name registerUserController
  * @description Register a  new user, expects username, email and password in the request body  
