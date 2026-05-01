@@ -1,12 +1,19 @@
-import React from "react";
+import React from "react";   // this page is UI
+import "../auth.form.scss"
 
 const Login = () => {
+    
+    const handlesubmit = (e) => {
+        e.preventDefault()
+    }
+    
+    
     return (
         <main>
             <div className="form-container">
                 <h1>Login</h1>
 
-                <form>
+                <form onSubmit={handlesubmit}>
 
                     <div className="input-group">
                         <label htmlFor="email">Email</label>
@@ -17,7 +24,7 @@ const Login = () => {
                         <input type="password" id="password" name="password" placeholder="Enter your password" />
                     </div>
 
-                    <button className="primary, primary-button">Login</button>
+                    <button className="button primary-button"><b>Login</b></button>
 
                 </form>
             </div>

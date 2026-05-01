@@ -2,8 +2,12 @@ import React from "react";
 
 const Register = () => {
     return (
-        <div>Register</div>
+        <main>
+            
+        </main>
     )
 }
 
 export default Register
+
+
