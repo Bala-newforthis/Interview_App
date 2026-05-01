@@ -1,4 +1,5 @@
 import React from "react";   // this page is UI
+import { useNavigate, Link } from "react-router";
 import "../auth.form.scss"
 
 const Login = () => {
@@ -27,6 +28,8 @@ const Login = () => {
                     <button className="button primary-button"><b>Login</b></button>
 
                 </form>
+
+                <p>Don't have an account ? <Link to= {"/register"}>Register</Link></p>
             </div>
         </main>
     )
