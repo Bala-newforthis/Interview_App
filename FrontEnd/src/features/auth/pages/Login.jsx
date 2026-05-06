@@ -11,8 +11,13 @@ const Login = () => {
 
     const [password, setPassword ] = useState("")
     
-    const handlesubmit = (e) => {
+    const handlesubmit = async (e) => {
         e.preventDefault()
+        handleLogin({ email, password })
+    }
+
+    if(loading){
+        return (<main><h1>Loading........ </h1></main>)
     }
     
     
