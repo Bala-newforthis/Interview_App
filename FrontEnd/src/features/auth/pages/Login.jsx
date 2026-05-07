@@ -1,19 +1,22 @@
 import React, { useState } from "react";   // this page is UI
 import { useNavigate, Link } from "react-router";
 import "../auth.form.scss"
-import { useAuth } from "../hooks/useauth";
+import { useAuth } from "../hooks/useAuth";
+
 
 const Login = () => {
 
     const { loading, handleLogin } = useAuth()
+    const navigate = useNavigate()
+
 
     const [email , setEmail ] = useState("")
-
     const [password, setPassword ] = useState("")
     
     const handlesubmit = async (e) => {
         e.preventDefault()
         handleLogin({ email, password })
+        navigate('/')
     }
 
     if(loading){
