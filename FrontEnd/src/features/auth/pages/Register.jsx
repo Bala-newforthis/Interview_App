@@ -10,7 +10,7 @@ const Register = () => {
     const [password, setPassword ] = useState("")
     const [confirmpassword, setconfirmPassword ] = useState("")
 
-    const { loading, handleRegister } = useAuth()
+    const { loading, handelRegister } = useAuth()
 
     const handlesubmit = async (e) => {
         e.preventDefault()
