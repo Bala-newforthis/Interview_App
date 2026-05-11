@@ -27,7 +27,7 @@ async function generateai() {
         messages: [
             {
                 role: "user",
-                content: "Hello llama! Explain what is Interview?"
+                content: "Hello Llama! Explain what is Interview?"
             }
         ],
         model: "llama-3.1-8b-instant",
