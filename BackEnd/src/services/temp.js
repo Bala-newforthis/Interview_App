@@ -109,37 +109,64 @@ Currently, I am looking for opportunities as a Full Stack Developer or React Dev
 `
 
 
-const  jobDescription = `Your Role And Responsibilities
+const  jobDescription = `Role Overview
 
-Collect and assess user requirements together with product management.
-Convert user requirements into software design, then into epics and user stories, and correctly size them.
-Participate in the daily scrum meetings and work with the scrum team.
-Conduct code reviews in conjunction with the scrum team.
-Collaborate with the ID team to ensure that new features are properly documented.
-Collaborate with the support team to make sure customer escalations are quickly resolved and the root reason is identified.
-Spread the word about new features at user group meetings so that customers can see a first demo of them.
-Carry out development in accordance with the design using agile methodology.
-Create and run unit tests for the code you produce.
-Collaborate with Scrum QA to create effective functional test cases.
 
-Required Technical And Professional Expertise
 
-Programming experience required – 3-5 years eg. JavaScript, Java or GO.
-At least one current web application framework proficiency of 3-5 years (ReactJS or Dojo).
-Proven design and optimization skills for both conventional and cutting-edge data stores and services, including RDBMS, NoSQL, and cloud object stores.
-Solid academic foundation in computer science or related disciplines, such as networking, data structures, and algorithms.
-Ability to effectively communicate thoughts and opinions to others.
+The Software Engineer I (SWE I) Marketing CMS role is an entry-level to early-career engineering position focused on building and maintaining frontend components and integrations within our Backstage CMS platform.
 
-Preferred Technical And Professional Expertise
 
-Knowledge of Java and J2EE. experience with HTML, CSS, and native JavaScript. knowledge of NodeJS/ExpressJS
-Knowledge in automated orchestration and configuration of infrastructure, such as Docker and Kubernetes.
-knowledge of CI/CD tools, such as Jenkins and Travis.
-Knowledge of developing apps for public and private clouds, respectively. experience with frameworks for unit testing.
-Working knowledge of agile teams. familiarity with continuous integration and delivery
-Knowledge of UI tools like Carbon Charts, Jest, and internJs.
+In this role you will primarily work with React and Next.js to support marketing-driven website functionality, assist in CMS component development, and collaborate with senior engineers to deliver scalable, high-quality web experiences. The ideal candidate is eager to learn, comfortable working in modern JavaScript frameworks, and interested in growing into a full-stack engineer over time.
 
-Knowledge of databases like Oracle, MySql, MSSQL, and DB2. knowledge of business-related development (multi-threading, scalability, perfo`
+
+
+
+Key Responsibilities
+
+
+
+Develop and maintain frontend components using React and Next.js within CMS-driven websites
+Assist in implementing and updating CMS content structures and reusable components
+Work with senior engineers to integrate APIs and backend services
+Support A/B testing, feature flag implementations, and marketing-driven updates
+Troubleshoot UI issues and assist with bug fixes in production environments
+Participate in code reviews and team agile ceremonies (standups, sprint planning, retrospectives)
+Follow best practices for clean, maintainable, and accessible code
+Learn and contribute to performance improvements and frontend optimization efforts
+Collaborate with Product, Marketing, and Engineering teams on feature delivery
+
+
+
+
+Required Skills & Experience
+
+
+
+0-2 years of professional software engineering experience OR relevant internships/projects
+Working knowledge of React (strong preference) and modern JavaScript (ES6+)
+Basic understanding of HTML, CSS, and responsive design
+Familiarity with Git and version control workflows
+Understanding of component-based development concepts
+Ability to learn quickly and follow established engineering patterns
+Experience building frontend applications (school, bootcamp, or professional)
+Exposure to React or similar frontend frameworks
+Bachelor’s / Master’s degree in Computer Science, Engineering, or equivalent
+
+
+
+
+Additional Skills
+
+
+
+Experience with Next.js
+Familiarity with headless CMS platforms (Builder.io, Contentful, etc.)
+Basic understanding of REST APIs
+Exposure to TypeScript
+Awareness of web performance and debugging tools
+Experience working on marketing sites or CMS-driven applications
+Exposure to A/B testing, analytics, or tag management tools
+Internship or junior role in a modern web development environment`
 
 
 module.exports = {
