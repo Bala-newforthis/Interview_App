@@ -49,7 +49,7 @@ const technicalQuestionSchema = new mongoose.Schema({
     _id: false
 })
 
-const behavarioulQuestionSchema  = new mongoose.Schema ({
+const behavioralQuestionSchema  = new mongoose.Schema ({
     question : {
         type : String ,
         required : [true, "Behavarioul Question is required"]
