@@ -1,9 +1,8 @@
 const {GoogleGenAI} = require ("@google/genai")
-// const Llama = require("groq-sdk");
 const { z } = require("zod")
 const { zodToJsonSchema } = require("zod-to-json-schema")
 const { resume, selfDescription, jobDescription } = require("./temp")
-// const { Schema } = require("zod/v3")
+
 
 const ai = new GoogleGenAI({
     apiKey: process.env.GOOGLE_GENAI_API_KEY
@@ -11,7 +10,7 @@ const ai = new GoogleGenAI({
 
 
 const interviewReportSchema = z.object({
-    matchScore: z.number().describe("A score between 0 to 100 indicating how well the candidate's profile matches to the description "),
+    matchScore: z.number().min(0).max(100).describe("A score between 0 to 100 indicating how well the candidate's profile matches to the description "),
     technicalQuestions : z.array(z.object({
         question: z.string().describe("The technical question can be asked in the Interview "), 
         intention : z.string().describe("The intention of interview behind asking this question "),
@@ -38,48 +37,73 @@ const interviewReportSchema = z.object({
 async function generateInterviewReport({resume, selfDescription, jobDescription}) {
 
     
-    const prompt = ` you must only return valid json .
+    const prompt = ` return only return valid json .
     do not return markdown.
-    do not return heading.
     do not return explanation text.
-    
+
+
     
     Generate an Interview report for a candidate with the following details :
     Resume : ${resume}
     Self Description : ${selfDescription}
     Job Description : ${jobDescription}
     `
+try {
 
-    const response = await ai.models.generateContent({
-        model: "gemini-2.5-flash-lite",
-        contents : prompt,
-        config: {
-            responseFormat : {text : {mimeType : "application/json", schema : zodToJsonSchema(interviewReportSchema)}}
+        const response = await ai.models.generateContent({
+            model: "gemini-3-flash-preview",
+
+            contents: prompt,
+
+            config: {
+                responseMimeType: "application/json",
+                responseSchema: zodToJsonSchema(interviewReportSchema),
+                temperature : 0.2
+            }
+        });
+
+        console.log(response.text);
+
+        // CLEAN MARKDOWN
+        // const cleanedText = response.text
+        //     .replace(/```json/g, "")
+        //     .replace(/```/g, "")
+        //     .trim();
+
+        // PARSE JSON
+        // const parsedData = JSON.parse(cleanedText);
+
+        // VALIDATE WITH ZOD
+        const result = interviewReportSchema.safeParse(parsedData);
+
+        if (!result.success) {
+
+            console.log(result.error.format());
+
+            throw new Error("Invalid AI Response");
         }
-    })
-    const interview = interviewReportSchema.parse(JSON.parse(response.text));
-    console.log((interview));
 
-    return interview;
+        return result.data;
 
+    } catch (error) {
+
+        console.log("AI SERVICE ERROR:");
+        console.log(error);
+
+    return {
+        success : false,
+        message : "Gemini API quota exceeded or AI request failed",
+        error : error.message
+    };
+    }
 }
 
-// const llama = new Llama({
-    //apiKey: process.env.GROQ_API_KEY
-// }); // i want to create for the recipe of grop ai which want to implement in it 
-
-
-
-
-
-
-
+ 
 generateInterviewReport({resume, selfDescription, jobDescription});
 
 
 module.exports ={
     generateInterviewReport,
-    // generateai,
 }
 
 
