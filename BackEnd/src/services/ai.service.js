@@ -1,8 +1,7 @@
 const {GoogleGenAI} = require ("@google/genai")
 const { z } = require("zod")
-const { zodToJsonSchema } = require("zod-to-json-schema")
+// const { zodToJsonSchema } = require("zod-to-json-schema")
 const { resume, selfDescription, jobDescription } = require("./temp")
-const { $ZodCheckLengthEquals } = require("zod/v4/core")
 
 
 const ai = new GoogleGenAI({
@@ -11,7 +10,7 @@ const ai = new GoogleGenAI({
 
 
 const interviewReportSchema = z.object({
-    matchScore: z.coerce.number().describe("A score between 0 to 100 indicating how well the candidate's profile matches to the description "),
+    matchScore: z.coerce.number().describe("A score between 0 to 100 indicating how well the candidate's profile matches to the job description "),
     technicalQuestions : z.array(z.object({
         question: z.string().describe("The technical question can be asked in the Interview "), 
         intention : z.string().describe("The intention of interview behind asking this question "),
@@ -48,6 +47,14 @@ Each skillGaps item must have: skill, severity ( "low", "medium", "high")
 Each preparationPlan item must have: day (number), focus, tasks (array of strings)
 
 Generate:
+- candidate_name
+- position_applied
+- date_of_interview
+- interviwer_name
+- overall_recommadation
+- strength
+- area_of_improvement
+- technical_assessement
 - 5 technical questions
 - 5 behavioral questions
 - 3 skill gaps
@@ -73,7 +80,6 @@ try {
 
             config: {
                 responseMimeType: "application/json",
-                //  responseSchema: zodToJsonSchema(interviewReportSchema)
                 
             }
         });
@@ -88,7 +94,7 @@ const parsedData = JSON.parse(response.text);
 
         if (!result.success) {
 
-            console.log("ZOD ERROR :" ,result.error.format());
+            console.log("ZOD ERROR :" , result.error.format());
 
             throw new Error("Invalid AI Response");
         }
