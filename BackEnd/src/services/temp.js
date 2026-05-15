@@ -109,64 +109,47 @@ Currently, I am looking for opportunities as a Full Stack Developer or React Dev
 `
 
 
-const  jobDescription = `Role Overview
+const  jobDescription = `About the projects: we are building LLM evaluation and training datasets to train LLM to work on realistic software engineering problems. One of our approaches, in this project, is to build verifiable SWE tasks based on public repository histories in a synthetic approach with human-in-the-loop; while expanding the dataset coverage to different types of tasks in terms of programming language, difficulty level, and etc.
 
 
+About the Role: 
 
-The Software Engineer I (SWE I) Marketing CMS role is an entry-level to early-career engineering position focused on building and maintaining frontend components and integrations within our Backstage CMS platform.
-
-
-In this role you will primarily work with React and Next.js to support marketing-driven website functionality, assist in CMS component development, and collaborate with senior engineers to deliver scalable, high-quality web experiences. The ideal candidate is eager to learn, comfortable working in modern JavaScript frameworks, and interested in growing into a full-stack engineer over time.
+We are looking for experienced software engineers (tech lead level) who are familiar with high-quality public GitHub repositories and can contribute to this project. This role involves hands-on software engineering work, including development environment automation, issue triaging, and evaluating test coverage and quality
 
 
+Why Join Us? 
+
+Turing is one of the world’s fastest-growing AI companies accelerating the advancement and deployment of powerful AI systems. You’ll be at the forefront of evaluating how LLMs interact with real code, influencing the future of AI-assisted software development. This is a unique opportunity to blend practical software engineering with AI research.
 
 
-Key Responsibilities
+What does day-to-day look like:
+
+Analyze and triage GitHub issues across trending open-source libraries.
+Set up and configure code repositories, including Dockerization and environment setup.
+Evaluating unit test coverage and quality.
+Modify and run codebases locally to assess LLM performance in bug-fixing scenarios.
+Collaborate with researchers to design and identify repositories and issues that are challenging for LLMs.
+Opportunities to lead a team of junior engineers to collaborate on projects.
 
 
+Required Skills:
 
-Develop and maintain frontend components using React and Next.js within CMS-driven websites
-Assist in implementing and updating CMS content structures and reusable components
-Work with senior engineers to integrate APIs and backend services
-Support A/B testing, feature flag implementations, and marketing-driven updates
-Troubleshoot UI issues and assist with bug fixes in production environments
-Participate in code reviews and team agile ceremonies (standups, sprint planning, retrospectives)
-Follow best practices for clean, maintainable, and accessible code
-Learn and contribute to performance improvements and frontend optimization efforts
-Collaborate with Product, Marketing, and Engineering teams on feature delivery
+Minimum 3+ years of overall experience
+Strong experience in JavaScript / TypeScript
+Proficiency with Git, Docker, and basic software pipeline setup.
+Ability to understand and navigate complex codebases.
+Comfortable running, modifying, and testing real-world projects locally.
+Experience contributing to or evaluating open-source projects is a plus.
 
 
+Nice to Have:
 
-
-Required Skills & Experience
-
-
-
-0-2 years of professional software engineering experience OR relevant internships/projects
-Working knowledge of React (strong preference) and modern JavaScript (ES6+)
-Basic understanding of HTML, CSS, and responsive design
-Familiarity with Git and version control workflows
-Understanding of component-based development concepts
-Ability to learn quickly and follow established engineering patterns
-Experience building frontend applications (school, bootcamp, or professional)
-Exposure to React or similar frontend frameworks
-Bachelor’s / Master’s degree in Computer Science, Engineering, or equivalent
-
-
-
-
-Additional Skills
-
-
-
-Experience with Next.js
-Familiarity with headless CMS platforms (Builder.io, Contentful, etc.)
-Basic understanding of REST APIs
-Exposure to TypeScript
-Awareness of web performance and debugging tools
-Experience working on marketing sites or CMS-driven applications
-Exposure to A/B testing, analytics, or tag management tools
-Internship or junior role in a modern web development environment`
+Previous participation in LLM research or evaluation projects.
+Experience building or testing developer tools or automation agents.
+Perks of Freelancing With Turing:
+Work in a fully remote environment.
+Opportunity to work on cutting-edge AI projects with leading LLM companies.
+`
 
 
 module.exports = {

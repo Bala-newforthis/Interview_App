@@ -2,6 +2,7 @@ const {GoogleGenAI} = require ("@google/genai")
 const { z } = require("zod")
 const { zodToJsonSchema } = require("zod-to-json-schema")
 const { resume, selfDescription, jobDescription } = require("./temp")
+const { $ZodCheckLengthEquals } = require("zod/v4/core")
 
 
 const ai = new GoogleGenAI({
@@ -10,7 +11,7 @@ const ai = new GoogleGenAI({
 
 
 const interviewReportSchema = z.object({
-    matchScore: z.number().min(0).max(100).describe("A score between 0 to 100 indicating how well the candidate's profile matches to the description "),
+    matchScore: z.coerce.number().describe("A score between 0 to 100 indicating how well the candidate's profile matches to the description "),
     technicalQuestions : z.array(z.object({
         question: z.string().describe("The technical question can be asked in the Interview "), 
         intention : z.string().describe("The intention of interview behind asking this question "),
@@ -36,49 +37,58 @@ const interviewReportSchema = z.object({
 
 async function generateInterviewReport({resume, selfDescription, jobDescription}) {
 
-    
-    const prompt = ` return only return valid json .
-    do not return markdown.
-    do not return explanation text.
+    const prompt = `
+You are an AI interview analyzer.
+Analyze the candidate resume and job description.
+Return a single valid JSON object with EXACTLY these camelCase keys:
+matchScore, technicalQuestions, behavioralQuestions, skillGaps, preparationPlan
 
+Each technicalQuestions and behavioralQuestions item must have: question, intention, answer
+Each skillGaps item must have: skill, severity ( "low", "medium", "high")
+Each preparationPlan item must have: day (number), focus, tasks (array of strings)
 
+Generate:
+- 5 technical questions
+- 5 behavioral questions
+- 3 skill gaps
+- 7 preparation plan days
+
+Resume:
+${resume}
+
+Self Description:
+${selfDescription}
+
+Job Description:
+${jobDescription}
+`;
     
-    Generate an Interview report for a candidate with the following details :
-    Resume : ${resume}
-    Self Description : ${selfDescription}
-    Job Description : ${jobDescription}
-    `
+    
 try {
 
         const response = await ai.models.generateContent({
-            model: "gemini-3-flash-preview",
+            model: "gemini-2.5-flash-lite",
 
             contents: prompt,
 
             config: {
                 responseMimeType: "application/json",
-                responseSchema: zodToJsonSchema(interviewReportSchema),
-                temperature : 0.2
+                //  responseSchema: zodToJsonSchema(interviewReportSchema)
+                
             }
         });
 
-        console.log(response.text);
+console.log(response.text);
 
-        // CLEAN MARKDOWN
-        // const cleanedText = response.text
-        //     .replace(/```json/g, "")
-        //     .replace(/```/g, "")
-        //     .trim();
 
-        // PARSE JSON
-        // const parsedData = JSON.parse(cleanedText);
+const parsedData = JSON.parse(response.text);
 
         // VALIDATE WITH ZOD
         const result = interviewReportSchema.safeParse(parsedData);
 
         if (!result.success) {
 
-            console.log(result.error.format());
+            console.log("ZOD ERROR :" ,result.error.format());
 
             throw new Error("Invalid AI Response");
         }
@@ -87,8 +97,7 @@ try {
 
     } catch (error) {
 
-        console.log("AI SERVICE ERROR:");
-        console.log(error);
+        console.log("AI SERVICE ERROR: error");
 
     return {
         success : false,
@@ -98,15 +107,6 @@ try {
     }
 }
 
- 
-generateInterviewReport({resume, selfDescription, jobDescription});
-
-
 module.exports ={
     generateInterviewReport,
 }
-
-
-
-
-
