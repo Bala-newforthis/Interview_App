@@ -1,11 +1,14 @@
 const express = require("express");
-const app = express();
+const authMiddleware = require("../middlewares/auth.middleware")
+const interviewController =  require("../controller/interview.controller")
 
-app.get ("/",(req, res) => {
-    res.send("Hello world")
-});
+const interviewRouter = express.Router()
 
-app.listen(3000,() => {
-    console.log("server is running in port 3000");
-    
-})
+/**
+ * @route POST /api/interview/
+ * @description generate new interview report on the basic of user self description , resume pdf and job description 
+ * @access private
+ */
+interviewRouter.post("/", authMiddleware.authUser , interviewController.generateInterviewReportController)
+
+module.exports = interviewRouter
