@@ -1,6 +1,6 @@
 const {GoogleGenAI} = require ("@google/genai")
 const { z } = require("zod")
-// const { zodToJsonSchema } = require("zod-to-json-schema")
+const { zodToJsonSchema } = require("zod-to-json-schema")
 const { resume, selfDescription, jobDescription } = require("./temp")
 
 
@@ -11,6 +11,11 @@ const ai = new GoogleGenAI({
 
 const interviewReportSchema = z.object({
     matchScore: z.coerce.number().describe("A score between 0 to 100 indicating how well the candidate's profile matches to the job description "),
+    positionApplied : z.string().describe("name of the tittle which i am applying for "),
+    overallRecommendations:z.string().describe("what all are expecting in this position applied as a fresher and experience person in this field where they can improve by itself "),
+    strength: z.string().describe("we have self_description based on give me a better strength in this field "),
+    coverletter : z.string().describe("we have resume and self_description with this and we get accordindly based on the profile so that interviwer can be impressed by the coverletter "),
+    areaofimprovement:z.string().describe("based on the expectation we get self_description and jobdescription make an improvement with that so that we can apply on this role "),
     technicalQuestions : z.array(z.object({
         question: z.string().describe("The technical question can be asked in the Interview "), 
         intention : z.string().describe("The intention of interview behind asking this question "),
@@ -38,27 +43,60 @@ async function generateInterviewReport({resume, selfDescription, jobDescription}
 
     const prompt = `
 You are an AI interview analyzer.
+
 Analyze the candidate resume and job description.
-Return a single valid JSON object with EXACTLY these camelCase keys:
-matchScore, technicalQuestions, behavioralQuestions, skillGaps, preparationPlan
 
-Each technicalQuestions and behavioralQuestions item must have: question, intention, answer
-Each skillGaps item must have: skill, severity ( "low", "medium", "high")
-Each preparationPlan item must have: day (number), focus, tasks (array of strings)
+Return ONLY a valid JSON object.
 
-Generate:
-- candidate_name
-- position_applied
-- date_of_interview
-- interviwer_name
-- overall_recommadation
-- strength
-- area_of_improvement
-- technical_assessement
-- 5 technical questions
-- 5 behavioral questions
-- 3 skill gaps
-- 7 preparation plan days
+Use EXACTLY these camelCase keys:
+
+candidateName
+matchScore
+positionApplied
+overallRecommendations
+strength
+coverletter
+areaofimprovement
+technicalQuestions
+behavioralQuestions
+skillGaps
+preparationPlan
+
+Rules:
+
+- matchScore must be a number between 0 and 100
+- Generate exactly 5 technicalQuestions
+- Generate exactly 5 behavioralQuestions
+- Generate exactly 3 skillGaps
+- Generate exactly 7 preparationPlan items
+
+Each technicalQuestions item must contain:
+question
+intention
+answer
+
+Each behavioralQuestions item must contain:
+question
+intention
+answer
+
+Each skillGaps item must contain:
+skill
+severity
+
+severity must be:
+"low", "medium", or "high"
+
+Each preparationPlan item must contain:
+- day → number only (example: 1)
+- focus
+- tasks
+
+Example:
+{
+  "day": 1,
+  "focus": "React",
+  "tasks": ["Practice hooks"]
 
 Resume:
 ${resume}
@@ -74,13 +112,13 @@ ${jobDescription}
 try {
 
         const response = await ai.models.generateContent({
-            model: "gemini-2.5-flash-lite",
+            model: "gemini-3-flash-preview",
 
             contents: prompt,
 
             config: {
                 responseMimeType: "application/json",
-                
+                // responseSchema : zodToJsonSchema(interviewReportSchema)
             }
         });
 
@@ -103,14 +141,15 @@ const parsedData = JSON.parse(response.text);
 
     } catch (error) {
 
-        console.log("AI SERVICE ERROR: error");
+        console.error("AI SERVICE ERROR :", error.message);
+        
 
     return {
         success : false,
         message : "Gemini API quota exceeded or AI request failed",
         error : error.message
     };
-    }
+}
 }
 
 module.exports ={

@@ -109,46 +109,44 @@ Currently, I am looking for opportunities as a Full Stack Developer or React Dev
 `
 
 
-const  jobDescription = `About the projects: we are building LLM evaluation and training datasets to train LLM to work on realistic software engineering problems. One of our approaches, in this project, is to build verifiable SWE tasks based on public repository histories in a synthetic approach with human-in-the-loop; while expanding the dataset coverage to different types of tasks in terms of programming language, difficulty level, and etc.
+const  jobDescription = `Are you passionate about coding and eager to work on cutting-edge projects?
 
+A US-based client is looking for experienced developers with strong JavaScript or TypeScript skills to join their dynamic team. This role offers the opportunity to collaborate with global companies on AI-driven solutions, tackle complex challenges, and continuously enhance your skills in a fast-paced environment.
 
-About the Role: 
+What You’ll Do
 
-We are looking for experienced software engineers (tech lead level) who are familiar with high-quality public GitHub repositories and can contribute to this project. This role involves hands-on software engineering work, including development environment automation, issue triaging, and evaluating test coverage and quality
+Write clean, reusable, and maintainable code.
+Participate in code reviews to ensure high-quality standards.
+Develop scalable, modular web applications with a focus on security and stability.
+Collaborate with teams to build advanced AI-driven solutions.
+Deliver well-structured and documented code.
 
+What We’re Looking For
 
-Why Join Us? 
+Open to applicants of all levels, from junior to industry experts.
+Bachelor’s or Master’s degree in Computer Science, Engineering, or equivalent experience.
+Strong understanding of ES6 and frameworks like Node.js or React.
+Knowledge of front-end, back-end, or full-stack development.
+Interest in building scalable, secure web applications with clean architecture.
+Good spoken and written communication skills in English.
 
-Turing is one of the world’s fastest-growing AI companies accelerating the advancement and deployment of powerful AI systems. You’ll be at the forefront of evaluating how LLMs interact with real code, influencing the future of AI-assisted software development. This is a unique opportunity to blend practical software engineering with AI research.
+Nice To Have
 
+Familiarity with additional frameworks like Vue.js, Angular, or Nest.js.
+Understanding of software quality assurance and test planning.
 
-What does day-to-day look like:
+What We Offer
 
-Analyze and triage GitHub issues across trending open-source libraries.
-Set up and configure code repositories, including Dockerization and environment setup.
-Evaluating unit test coverage and quality.
-Modify and run codebases locally to assess LLM performance in bug-fixing scenarios.
-Collaborate with researchers to design and identify repositories and issues that are challenging for LLMs.
-Opportunities to lead a team of junior engineers to collaborate on projects.
+Work with leading experts worldwide and expand your professional network.
+This is a contractual remote work opportunity without traditional job constraints.
+Competitive salary based on global industry standards.
+Exposure to innovative projects at the forefront of technology.
 
+Interview Process
 
-Required Skills:
-
-Minimum 3+ years of overall experience
-Strong experience in JavaScript / TypeScript
-Proficiency with Git, Docker, and basic software pipeline setup.
-Ability to understand and navigate complex codebases.
-Comfortable running, modifying, and testing real-world projects locally.
-Experience contributing to or evaluating open-source projects is a plus.
-
-
-Nice to Have:
-
-Previous participation in LLM research or evaluation projects.
-Experience building or testing developer tools or automation agents.
-Perks of Freelancing With Turing:
-Work in a fully remote environment.
-Opportunity to work on cutting-edge AI projects with leading LLM companies.
+Shortlisted developers may be asked to complete an assessment.
+If you clear the assessment, you will be contacted for contract assignments with expected start dates, durations, and end dates.
+Some contract assignments require fixed weekly hours, averaging 20/30/40 hours per week for the duration of the contract assignment.
 `
 
 
