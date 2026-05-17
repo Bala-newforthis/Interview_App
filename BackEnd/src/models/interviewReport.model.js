@@ -52,7 +52,7 @@ const technicalQuestionSchema = new mongoose.Schema({
 const behavioralQuestionSchema  = new mongoose.Schema ({
     question : {
         type : String ,
-        required : [true, "Behavarioul Question is required"]
+        required : [true, "Behavioral Question is required"]
     },
     intention : {
         type : String ,
@@ -114,9 +114,13 @@ const InterviewReportSchema = new mongoose.Schema({
         max : 100,
     },
     technicalQuestions : [technicalQuestionSchema],
-    behavarioulQuestions : [behavarioulQuestionSchema],
+    behavioralQuestions : [behavioralQuestionSchema],
     skillGaps : [skillGapSchema],
-    prepartionplan : [prepartionplanSchema]
+    prepartionplan : [prepartionplanSchema],
+    user: {
+        type : mongoose.Schema.Types.ObjectId,
+        ref: "users"
+    }
 } , {
     timestamps : true
 })
