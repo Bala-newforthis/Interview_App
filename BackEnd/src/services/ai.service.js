@@ -9,7 +9,8 @@ const ai = new GoogleGenAI({
 })
 
 
-const interviewReportSchema = z.object({
+const interviewReportSchema =  z.object({
+    candidateName: z.string().describe("Full name of candidate"),
     matchScore: z.coerce.number().describe("A score between 0 to 100 indicating how well the candidate's profile matches to the job description "),
     positionApplied : z.string().describe("name of the tittle which i am applying for "),
     overallRecommendations:z.string().describe("what all are expecting in this position applied as a fresher and experience person in this field where they can improve by itself "),
@@ -44,59 +45,69 @@ async function generateInterviewReport({resume, selfDescription, jobDescription}
     const prompt = `
 You are an AI interview analyzer.
 
-Analyze the candidate resume and job description.
+Analyze the candidate resume, self description, and job description.
 
-Return ONLY a valid JSON object.
+Return ONLY valid JSON.
 
-Use EXACTLY these camelCase keys:
+DO NOT return explanations.
+DO NOT return markdown.
+DO NOT return arrays of strings.
+ALL arrays must contain JSON objects.
 
-candidateName
-matchScore
-positionApplied
-overallRecommendations
-strength
-coverletter
-areaofimprovement
-technicalQuestions
-behavioralQuestions
-skillGaps
-preparationPlan
+Use EXACTLY these keys:
+
+{
+  "candidateName": "",
+  "matchScore": 0,
+  "positionApplied": "",
+  "overallRecommendations": "",
+  "strength": "",
+  "coverletter": "",
+  "areaofimprovement": "",
+
+  "technicalQuestions": [
+    {
+      "question": "",
+      "intention": "",
+      "answer": ""
+    }
+  ],
+
+  "behavioralQuestions": [
+    {
+      "question": "",
+      "intention": "",
+      "answer": ""
+    }
+  ],
+
+  "skillGaps": [
+    {
+      "skill": "",
+      "severity": "low"
+    }
+  ],
+
+  "preparationPlan": [
+    {
+      "day": 1,
+      "focus": "",
+      "tasks": ["", ""]
+    }
+  ]
+}
 
 Rules:
 
-- matchScore must be a number between 0 and 100
+- matchScore must be between 0 and 100
 - Generate exactly 5 technicalQuestions
 - Generate exactly 5 behavioralQuestions
 - Generate exactly 3 skillGaps
 - Generate exactly 7 preparationPlan items
-
-Each technicalQuestions item must contain:
-question
-intention
-answer
-
-Each behavioralQuestions item must contain:
-question
-intention
-answer
-
-Each skillGaps item must contain:
-skill
-severity
-
-severity must be:
-"low", "medium", or "high"
-
-Each preparationPlan item must contain:
-- day → number only (example: 1)
-- focus
-- tasks
-
-Example:
-{
-  "day": 1,
-  "focus": "React",
-  "tasks": ["Practice hooks"]
+- severity must only be:
+  "low"
+  "medium"
+  "high"
 
 Resume:
 ${resume}
@@ -112,7 +123,7 @@ ${jobDescription}
 try {
 
         const response = await ai.models.generateContent({
-            model: "gemini-3-flash-preview",
+            model: "gemini-2.5-flash",
 
             contents: prompt,
 
@@ -126,6 +137,8 @@ console.log(response.text);
 
 
 const parsedData = JSON.parse(response.text);
+
+console.log(JSON.stringify(parsedData, null ,2));
 
         // VALIDATE WITH ZOD
         const result = interviewReportSchema.safeParse(parsedData);
