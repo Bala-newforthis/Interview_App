@@ -1,6 +1,5 @@
 const { GoogleGenAI } = require ("@google/genai")
 const { z } = require("zod")
-// const { zodToJsonSchema } = require("zod-to-json-schema")
 const { resume, selfDescription, jobDescription } = require("./temp")
 
 
@@ -133,7 +132,6 @@ const response  = await ai.models.generateContent({
   contents : prompt,
   config : {
     responseMimeType : "application/json",
-    // responseSchema : interviewReportSchema,
   }
 })
 const result = response.text;
@@ -145,7 +143,7 @@ console.log(parsedData);
 
 return parsedData;
 
-// await interviewReport.create(parsedData)
+
 }
 
     
