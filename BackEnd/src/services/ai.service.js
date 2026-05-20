@@ -1,6 +1,6 @@
-const {GoogleGenAI} = require ("@google/genai")
+const { GoogleGenAI } = require ("@google/genai")
 const { z } = require("zod")
-const { zodToJsonSchema } = require("zod-to-json-schema")
+// const { zodToJsonSchema } = require("zod-to-json-schema")
 const { resume, selfDescription, jobDescription } = require("./temp")
 
 
@@ -20,12 +20,12 @@ const interviewReportSchema =  z.object({
     technicalQuestions : z.array(z.object({
         question: z.string().describe("The technical question can be asked in the Interview "), 
         intention : z.string().describe("The intention of interview behind asking this question "),
-        answer : z.string().describe("How to answer this question, what points to be cover, what approach to take etc.")
+        answer : z.string().describe("Explain the concept with practical examples and implementation details.")
     })).describe("Technical question can be asked in the interview along with their intention and how to answer them "),
     behavioralQuestions : z.array(z.object({
         question : z.string().describe("The behavioral question can be asked in the Interview"),
         intention: z.string().describe("The intention of interview behind asking this question "),
-        answer : z.string().describe("How to answer this question, what points to be cover,  what approach to take etc.")
+        answer : z.string().describe("Explain the concept with practical examples and implementation details.")
     })).describe("Behavioral question can be asked in the interview along with their intention and how to answer them "),
     skillGaps: z.array(z.object({
         skill: z.string().describe("The skill which the candidate is lacking "),
@@ -53,6 +53,11 @@ DO NOT return explanations.
 DO NOT return markdown.
 DO NOT return arrays of strings.
 ALL arrays must contain JSON objects.
+
+IMPORTANT:
+Return ONLY valid JSON.
+Do not return plain strings for arrays.
+technicalQuestions, behavioralQuestions, skillGaps, and preparationPlan MUST contain objects exactly matching schema.
 
 Use EXACTLY these keys:
 
@@ -84,7 +89,7 @@ Use EXACTLY these keys:
   "skillGaps": [
     {
       "skill": "",
-      "severity": "low"
+      "severity": ["low","medium","high"],
     }
   ],
 
@@ -97,7 +102,15 @@ Use EXACTLY these keys:
   ]
 }
 
-Rules:
+IMPORTANT RULES:
+
+1. Return ONLY valid JSON.
+2. technicalQuestions must be an ARRAY OF OBJECTS.
+3. behavioralQuestions must be an ARRAY OF OBJECTS.
+4. skillGaps must be an ARRAY OF OBJECTS.
+5. preparationPlan must be an ARRAY OF OBJECTS.
+6. Do NOT return plain strings inside arrays.
+7. Follow the schema exactly.
 
 - matchScore must be between 0 and 100
 - Generate exactly 5 technicalQuestions
@@ -109,61 +122,34 @@ Rules:
   "medium"
   "high"
 
-Resume:
-${resume}
+            Resume:${resume}
 
-Self Description:
-${selfDescription}
+            Self Description:${selfDescription}
 
-Job Description:
-${jobDescription}
+            Job Description:${jobDescription}
 `;
-    
-    
-try {
+const response  = await ai.models.generateContent({
+  model: "gemini-2.5-flash-lite",
+  contents : prompt,
+  config : {
+    responseMimeType : "application/json",
+    // responseSchema : interviewReportSchema,
+  }
+})
+const result = response.text;
 
-        const response = await ai.models.generateContent({
-            model: "gemini-2.5-flash",
+const parsedData = JSON.parse(result);
 
-            contents: prompt,
-
-            config: {
-                responseMimeType: "application/json",
-                // responseSchema : zodToJsonSchema(interviewReportSchema)
-            }
-        });
-
-console.log(response.text);
+console.log(parsedData);
 
 
-const parsedData = JSON.parse(response.text);
+return parsedData;
 
-console.log(JSON.stringify(parsedData, null ,2));
-
-        // VALIDATE WITH ZOD
-        const result = interviewReportSchema.safeParse(parsedData);
-
-        if (!result.success) {
-
-            console.log("ZOD ERROR :" , result.error.format());
-
-            throw new Error("Invalid AI Response");
-        }
-
-        return result.data;
-
-    } catch (error) {
-
-        console.error("AI SERVICE ERROR :", error.message);
-        
-
-    return {
-        success : false,
-        message : "Gemini API quota exceeded or AI request failed",
-        error : error.message
-    };
+// await interviewReport.create(parsedData)
 }
-}
+
+    
+
 
 module.exports ={
     generateInterviewReport,

@@ -35,8 +35,7 @@ const mongoose = require('mongoose');
 const technicalQuestionSchema = new mongoose.Schema({
     question : {
         type : String,
-        // required : [true, "Technical question is required"]
-        default:""
+        required : [true, "Technical question is required"]
     },
     intention : {
         type : String,
@@ -53,8 +52,7 @@ const technicalQuestionSchema = new mongoose.Schema({
 const behavioralQuestionSchema  = new mongoose.Schema ({
     question : {
         type : String ,
-        // required : [true, "Behavioral Question is required"]
-        default:""
+        required : [true, "Behavioral Question is required"]
     },
     intention : {
         type : String ,
@@ -71,12 +69,12 @@ const behavioralQuestionSchema  = new mongoose.Schema ({
 const skillGapSchema = new mongoose.Schema ({
     skill : {
         type: String,
-        required : [true, "Skill gap is required"]
+        required : [true, "Skill is required"]
     },
     severity : {
         type : String,
         enum : ["low", "medium", "high" ],
-        required : [true, "severity is required"]
+        required : [true, "Severity is required"]
     }
 }, {
     _id : false
@@ -99,7 +97,7 @@ const preparationplanSchema = new mongoose.Schema ({
     _id : false
 })
 
-const InterviewReportSchema = new mongoose.Schema({
+const interviewReportSchema = new mongoose.Schema({
 
     candidateName : String,
     positionApplied: String,
@@ -135,6 +133,6 @@ const InterviewReportSchema = new mongoose.Schema({
     timestamps : true
 })
 
-const interviewReportModel = mongoose.model("InterviewReport" , InterviewReportSchema);
+const interviewReportModel = mongoose.model("InterviewReport" , interviewReportSchema);
 
 module.exports = interviewReportModel;  
