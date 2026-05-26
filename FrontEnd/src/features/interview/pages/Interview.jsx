@@ -229,7 +229,7 @@ const Interview = () => {
                                     </span>
 
                                     <span className={`chevron ${expandedQ === idx ? 'open' : ''}`}>
-                                        ∨
+                                    ▼
                                     </span>
 
                                 </button>
@@ -270,35 +270,50 @@ const Interview = () => {
 
                         ))
 
+
                     ) : (
 
-                        questions.map((plan, idx) => (
+                        <div className='roadmap-timeline'>
 
-                            <div key={idx} className='roadmap-item'>
+                            {questions.map((plan, idx) => (
 
-                                <div className='roadmap-header'>
+                                <div key={idx} className='timeline-row'>
 
-                                    <h3>Day {plan.day}</h3>
+                                    <div className='timeline-marker'>
 
-                                    <h4>{plan.focus}</h4>
+                                        <div className='marker-day'>Day {plan.day}</div>
+
+                                        <div className='marker-dot' />
+
+                                    </div>
+
+                                    <div className='timeline-card'>
+
+                                        <div className='card-header'>
+
+                                            <h3>{plan.focus}</h3>
+
+                                        </div>
+
+                                        <ul className='card-tasks'>
+
+                                            {plan.tasks.map((task, taskIdx) => (
+
+                                                <li key={taskIdx} className='task-item'>
+                                                    {task}
+                                                </li>
+
+                                            ))}
+
+                                        </ul>
+
+                                    </div>
 
                                 </div>
 
-                                <ul className='roadmap-tasks'>
+                            ))}
 
-                                    {plan.tasks.map((task, taskIdx) => (
-
-                                        <li key={taskIdx}>
-                                            {task}
-                                        </li>
-
-                                    ))}
-
-                                </ul>
-
-                            </div>
-
-                        ))
+                        </div>
 
                     )}
 

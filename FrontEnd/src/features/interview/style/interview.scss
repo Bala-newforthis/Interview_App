@@ -175,9 +175,11 @@ $border-color: #30363d;
                 }
 
                 .chevron {
-                    color: $accent-purple;
-                    font-size: 1.2rem;
-                    transition: transform 0.3s;
+                    font-size: 14px;
+                    color: #d840e0;
+                    transition: transform 0.3s ease;
+                    display: inline-block;
+                    margin-left: auto;
 
                     &.open {
                         transform: rotate(180deg);
@@ -203,6 +205,113 @@ $border-color: #30363d;
             }
         }
     }
+
+        // ========== ROADMAP / TIMELINE STYLES ==========
+        .roadmap-timeline {
+            position: relative;
+            padding-left: 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: 40px;
+                top: 0.5rem;
+                bottom: 0.5rem;
+                width: 2px;
+                background: rgba(255,255,255,0.06);
+                border-radius: 2px;
+            }
+
+            .timeline-row {
+                display: flex;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            .timeline-marker {
+                width: 80px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.6rem;
+                position: relative;
+
+                .marker-day {
+                    font-size: 0.85rem;
+                    color: $text-secondary;
+                    font-weight: 700;
+                }
+
+                .marker-dot {
+                    width: 14px;
+                    height: 14px;
+                    background: linear-gradient(180deg, #d840e0, #e71ae3);
+                    border-radius: 50%;
+                    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+                    position: relative;
+                    margin-top: 3px;
+                }
+            }
+
+            .timeline-card {
+                background: $bg-card;
+                border: 1px solid $border-color;
+                border-radius: 0.6rem;
+                padding: 1rem 1.2rem;
+                width: 100%;
+                box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+
+                .card-header {
+                    h3 {
+                        margin: 0 0 0.4rem 0;
+                        font-size: 1.05rem;
+                        color: #f8fafe;
+                    }
+                }
+
+                .card-tasks {
+                    margin: 0;
+                    padding-left: 1.1rem;
+                    margin-top: 0.6rem;
+
+                    .task-item {
+                        margin: 0.4rem 0;
+                        color: $text-secondary;
+                        font-size: 0.95rem;
+                        line-height: 1.45;
+                        position: relative;
+
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            left: -1.05rem;
+                            top: 0.6rem;
+                            width: 6px;
+                            height: 6px;
+                            background: rgba(199,125,255,0.9);
+                            border-radius: 50%;
+                        }
+                    }
+                }
+            }
+
+            @media (max-width: 768px) {
+                padding-left: 20px;
+
+                &::before {
+                    left: 16px;
+                }
+
+                .timeline-marker {
+                    width: 56px;
+                    .marker-day { font-size: 0.8rem; }
+                    .marker-dot { width: 12px; height: 12px; }
+                }
+            }
+        }
 }
 
 // ========== RIGHT SIDEBAR ==========
