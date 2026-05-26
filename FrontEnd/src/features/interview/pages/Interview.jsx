@@ -69,7 +69,8 @@ const Interview = () => {
         skillGaps: [
             { skill: "TypeScript", color: "orange" },
             { skill: "Software Testing", color: "yellow" },
-            { skill: "Security Practices", color: "orange" }
+            { skill: "Security Practices", color: "orange" },
+            { skill: "Application for testing", color: "yellow"}
         ],
 
         preparationPlan: [
