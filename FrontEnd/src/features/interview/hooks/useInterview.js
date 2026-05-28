@@ -2,6 +2,7 @@ import { getAllInterviewReports, generateInterviewReport, getInterviewReportById
 import { useContext } from "react";
 import { InterviewContext } from "../interview.context";
 import { jobDescription, selfDescription } from "../../../../../BackEnd/src/services/temp";
+import { get } from "mongoose";
 
 
 export const useInterview = () => {
@@ -27,4 +28,30 @@ export const useInterview = () => {
             setLoading(false)
         }
     }
+
+    const getReportById = async (interviewId) => {
+        setLoading(true)
+        try {
+            const  response = await getInterviewReportById(interviewId)
+            setReport(response.interviewReport)
+        } catch (error) {
+            console.log(err)
+        } finally {
+            setLoading (false)
+        }
+    }
+
+    const getReports = async () => {
+        setLoading(true)
+        try {
+            const response = await getAllInterviewReports()
+            setReports(response.interviewReports)
+        } catch (error) {
+            console.log(err)
+        }finally {
+            setLoading(false)
+        }
+    }
+
+    return { loading, report , reports , generateReport , getReportById , getReports}
 }
