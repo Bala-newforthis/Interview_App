@@ -1,5 +1,6 @@
 import React from 'react'
 import "../style/home.scss"
+import { useInterview } from '../hooks/useInterview.js'
 
 const Home = () => {
     return (
