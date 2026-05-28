@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useState , useRef } from 'react'
 import "../style/home.scss"
 import { useInterview } from '../hooks/useInterview.js'
 
 const Home = () => {
+
+    const {loading , generateReport} = useInterview()  
+    const [jobdescription, setJobDescription] = useState("")
+    const 
+
     return (
         <main className='home'>
             <div className="form-wrapper">
