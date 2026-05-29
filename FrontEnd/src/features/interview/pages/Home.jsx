@@ -1,16 +1,22 @@
-import React, { useState , useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import "../style/home.scss"
 import { useInterview } from '../hooks/useInterview.js'
 import { useNavigate } from 'react-router'
+// import { report } from '../../../../../BackEnd/src/app.js'
 
 const Home = () => {
 
-    const {loading , generateReport} = useInterview()  
+    const { loading, generateReport, reports, getReports } = useInterview()
     const [jobDescription, setJobDescription] = useState("")
     const [selfDescription, setSelfDescription] = useState("")
+    const [showHistory, setShowHistory] = useState(false)
     const resumeInputRef = useRef()
 
     const navigate = useNavigate()
+
+    useEffect(() => {
+        getReports()
+    }, [])
 
     const handleGenerateReport = async () => {
         const resumeFile = resumeInputRef.current.files[0]
@@ -23,13 +29,14 @@ const Home = () => {
             alert ("upload resume or enterself Description ")
             return
         }
-        const data = await generateReport ({ jobDescription, selfDescription, resumeFile })
+        const data = await generateReport({ jobDescription, selfDescription, resumeFile })
         if (data?._id) {
+            await getReports()
             navigate(`/interview/${data._id}`)
         }
     }
 
-    if(loading) {
+    if (loading) {
         return (
             <main className='loading-screen'>
                 <h1>Loading your interview plan ....</h1>
@@ -97,14 +104,66 @@ const Home = () => {
                 </div>
             </div>
 
+
+
             {/* Bottom */}
             <div className="footer-section">
-                <span className="timing">AI-Powered Strategy Generation - Approx 30s</span>
+                <div className="footer-left">
+                    <span className="timing">AI-Powered Strategy Generation - Approx 30s</span>
+                    <button
+                        type='button'
+                        className='history-toggle'
+                        onClick={() => setShowHistory(prev => !prev)}
+                    >
+                        {showHistory ? 'Hide Interview History' : 'Tap to view your recent reports'}
+                    </button>
+                    {reports.length > 0 && (
+                        <span className='history-count'>Showing latest {Math.min(reports.length, 5)} of {reports.length} saved reports</span>
+                    )}
+                </div>
                 <button 
                         onClick={handleGenerateReport}
                     className="btn-primary">★ Generate My Interview Strategy</button>
             </div>
+
+            {showHistory && (
+                <section className='history-panel'>
+                    <div className='history-header'>
+                        <h2>Recent Interview History</h2>
+                        <p>Tap any item to open the report. The list is limited to your latest 5 reports.</p>
+                    </div>
+                    {reports.length > 0 ? (
+                        <ul className='reports-list'>
+                            {reports.slice(0, 5).map((report) => (
+                                <li
+                                    key={report._id}
+                                    className='report-item'
+                                    onClick={() => navigate(`/interview/${report._id}`)}
+                                >
+                                    <div>
+                                        <h3>{report.title || 'Untitled Position'}</h3>
+                                        <p className='report-meta'>Generated on {new Date(report.createdAt).toLocaleDateString()}</p>
+                                    </div>
+                                    <span className='report-link'>Open</span>
+                                </li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <p className='history-empty'>No previous reports were found yet.</p>
+                    )}
+                </section>
+            )}
+
+            {/* Page Footer */}
+            <footer className='page-footer'>
+                <a href="#"> Privacy Policy </a>
+                <a href="#"> Terms of Service </a>
+                <a href="#"> Help Center </a>
+                <p>&copy; 2023 Interview Prep AI. All rights reserved.</p>
+            </footer>
         </main>
+
+        
     )
 }
 
