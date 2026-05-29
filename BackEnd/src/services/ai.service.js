@@ -139,8 +139,28 @@ const result = response.text;
 
 const parsedData = JSON.parse(result);
 
-console.log(parsedData);
+parsedData.title =
+    parsedData.positionApplied || "Software Developer"
 
+parsedData.technicalQuestions =
+    parsedData.technicalQuestions.map((q) => ({
+        ...q,
+        answer:
+            q.answer && q.answer.trim() !== ""
+                ? q.answer
+                : "Explain your approach clearly with practical examples and implementation details."
+    }))
+
+parsedData.behavioralQuestions =
+    parsedData.behavioralQuestions.map((q) => ({
+        ...q,
+        answer:
+            q.answer && q.answer.trim() !== ""
+                ? q.answer
+                : "Use the STAR method to answer this behavioral question effectively."
+    }))
+
+console.log(parsedData);
 
 return parsedData;
 

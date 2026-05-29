@@ -8,18 +8,29 @@ const interviewReportModel = require("../models/interviewReport.model")
  */
 async function generateInterviewReportController(req, res) {
 
-    const resumeContent = await (new pdfParse.PDFParse(Uint8Array.from(req.file.buffer))).getText()
+    try {
+        let resumeText  = ""
+        if (req.file) {
+            const resumeContent = await (
+                new pdfParse.PDFParse(
+                    Uint8Array.from(req.file.buffer)
+                )
+            ).getText()
+
+            resumeText = resumeContent.text
+        }
+    
     const { selfDescription, jobDescription } = req.body
 
     const interviewReportByAi = await generateInterviewReport({
-        resume : resumeContent.text,
+        resume : resumeText,
         selfDescription,
         jobDescription
     })
 
     const InterviewReport = await interviewReportModel.create({
         user: req.user.id,
-        resume : resumeContent.text,
+        resume : resumeText,
         selfDescription,
         jobDescription,
         ...interviewReportByAi
@@ -28,8 +39,14 @@ async function generateInterviewReportController(req, res) {
         message : "Interview report generated succesfully",
         interviewReport : InterviewReport   
     })
+} catch (error) {
+    console.log(error)
+    res.status(500).json({
+        success:false,
+        message : error.message
+    })
 }
-
+}
 /**
  * @description Controller to get interview report by interviewId . 
  */
@@ -58,7 +75,7 @@ async function getInterviewReportByIdController(req, res) {
 
 async function getAllInterviewReportsController(req, res) {
     
-    const interviewReports  = await interviewReportModel.find ({user: req.user.id}).sort ({createdAt: -1}).select("-resume -selfDescription -jobDescription -_v -technicalQuestions -behaviouralQuestions -skillGaps -preparationPlan")
+    const interviewReports  = await interviewReportModel.find ({user: req.user.id}).sort ({createdAt: -1}).select("-resume -selfDescription -jobDescription -__v -technicalQuestions -behavioralQuestions -skillGaps -preparationPlan")
 
     res.status(200).json({
         message : "Interview reports fetched successfully.",

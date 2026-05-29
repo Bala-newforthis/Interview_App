@@ -324,6 +324,44 @@ $border-color: #30363d;
     position: sticky;
     top: 0;
 
+    .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.skill-tag {
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+    text-transform: capitalize;
+    border: 1px solid transparent;
+}
+
+/* LOW = EASY */
+.skill-tag.low {
+    background-color: rgba(35, 134, 54, 0.2);
+    color: #3fb950;
+    border-color: #238636;
+}
+
+/* MEDIUM */
+.skill-tag.medium {
+    background-color: rgba(210, 153, 34, 0.2);
+    color: #f2cc60;
+    border-color: #d29922;
+}
+
+/* HIGH = HARD */
+.skill-tag.high {
+    background-color: rgba(248, 81, 73, 0.2);
+    color: #ff7b72;
+    border-color: #da3633;
+}
+
     @media (max-width: 768px) {
         height: auto;
         border-left: none;

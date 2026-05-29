@@ -1,4 +1,4 @@
-const resume = `# BALAJI MURUGAN REDDY
+export const resume = `# BALAJI MURUGAN REDDY
 
 📍 Mumbai, Maharashtra
 📞 +91 8657103384
@@ -99,7 +99,7 @@ MERN Stack Development Certification — 2025
 `
 
 
-const selfDescription = `Hi, my name is Balaji Murugan Reddy. I am a MERN Stack Developer with hands-on experience in building full-stack web applications using MongoDB, Express.js, React.js, and Node.js. I have developed projects such as an e-commerce platform with user authentication, REST APIs, Redux state management, and responsive UI design.
+export const selfDescription = `Hi, my name is Balaji Murugan Reddy. I am a MERN Stack Developer with hands-on experience in building full-stack web applications using MongoDB, Express.js, React.js, and Node.js. I have developed projects such as an e-commerce platform with user authentication, REST APIs, Redux state management, and responsive UI design.
 
 Before transitioning into software development, I worked at Accenture and other organizations where I gained experience in Agile workflows, team collaboration, problem-solving, and handling high-volume tasks with accuracy. These experiences helped me improve my communication, analytical thinking, and professional work ethic.
 
@@ -109,7 +109,7 @@ Currently, I am looking for opportunities as a Full Stack Developer or React Dev
 `
 
 
-const  jobDescription = `Are you passionate about coding and eager to work on cutting-edge projects?
+export const  jobDescription = `Are you passionate about coding and eager to work on cutting-edge projects?
 
 A US-based client is looking for experienced developers with strong JavaScript or TypeScript skills to join their dynamic team. This role offers the opportunity to collaborate with global companies on AI-driven solutions, tackle complex challenges, and continuously enhance your skills in a fast-paced environment.
 
@@ -150,8 +150,3 @@ Some contract assignments require fixed weekly hours, averaging 20/30/40 hours p
 `
 
 
-module.exports = {
-    resume,
-    selfDescription,
-    jobDescription,
-}

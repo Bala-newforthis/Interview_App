@@ -1,8 +1,7 @@
 import { getAllInterviewReports, generateInterviewReport, getInterviewReportById  } from "../../auth/services/interview.api";
 import { useContext } from "react";
-import { InterviewContext } from "../interview.context";
-import { jobDescription, selfDescription } from "../../../../../BackEnd/src/services/temp";
-import { get } from "mongoose";
+import { InterviewContext } from "../interview.context.jsx";
+
 
 
 export const useInterview = () => {
@@ -21,8 +20,9 @@ export const useInterview = () => {
         try {
             const response = await generateInterviewReport ({jobDescription, selfDescription, resumeFile})
             setReport (response.interviewReport)
+            return response.interviewReport
         }
-        catch (err){
+        catch (error){
             console.log(error)
         }finally { 
             setLoading(false)
@@ -34,8 +34,9 @@ export const useInterview = () => {
         try {
             const  response = await getInterviewReportById(interviewId)
             setReport(response.interviewReport)
+            return response.interviewReport
         } catch (error) {
-            console.log(err)
+            console.log(error)
         } finally {
             setLoading (false)
         }
@@ -47,7 +48,7 @@ export const useInterview = () => {
             const response = await getAllInterviewReports()
             setReports(response.interviewReports)
         } catch (error) {
-            console.log(err)
+            console.log(error)
         }finally {
             setLoading(false)
         }
