@@ -159,7 +159,7 @@ const Home = () => {
                 <a href="#"> Privacy Policy </a>
                 <a href="#"> Terms of Service </a>
                 <a href="#"> Help Center </a>
-                <p>&copy; 2023 Interview Prep AI. All rights reserved.</p>
+                <p>&copy; 2026 Interview Prep AI. All rights reserved.</p>
             </footer>
         </main>
 
