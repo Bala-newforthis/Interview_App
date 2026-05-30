@@ -1,0 +1,329 @@
+[33mcommit 6e18b9a934124102d1aa92593647731578e039bb[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Sat May 30 01:28:36 2026 +0530
+
+    we have created a history to the user and add footer but adding footer there is an error that way i am stoping here tommorow i will complete the project with 510 time
+
+[33mcommit d9f6c93be27abb39809e1b51859bc93b76d8c6d2[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Fri May 29 20:24:56 2026 +0530
+
+    we project is succesfully working now done modification on interview.api.js , useinterview.js, home.jsx, Interview.jsx, interview.scss, interview.context.jsx and app.routes.jsx
+
+[33mcommit e1b5d3c8df7372b565cf722c710498ddc39bcf3f[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Thu May 28 22:43:02 2026 +0530
+
+    we have some changes in useinterview.js in hooks folder
+
+[33mcommit 7acd1065cfa44380aec2d7ebe0f9102f9d9156b2[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Thu May 28 22:41:42 2026 +0530
+
+    we have done some in home.jsx we do accurate
+
+[33mcommit 87ffed079717ab65500e86cbb841daa8f0f0ac53[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Thu May 28 22:40:39 2026 +0530
+
+    we have created one folder 3 file changes on that still doing some work
+
+[33mcommit 9e4a8f8a992d67b0ca3eba2298530e52e65ed843[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Wed May 27 00:16:18 2026 +0530
+
+    we have all the files which is necessary
+
+[33mcommit 10f8db26512051a3850a03947a09c36fb024529b[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Tue May 26 16:20:23 2026 +0530
+
+    we have succedfully created the ui for interview/xyz path from the url and from the interview.jsx and interview.scss file also updated
+
+[33mcommit 1a484cc0e2b8340fdc3bc4efbcf8650b41578c3d[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Mon May 25 21:14:57 2026 +0530
+
+    we have fix the interview.jsx file with the help of ai and self interview
+
+[33mcommit b9b31401f88fbd8b40a20dda02a8239306e3a852[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Mon May 25 01:13:28 2026 +0530
+
+    there are two more files named as a interview.jsx and interview.scssboth is pending for updates and app.routes to be check our frontend
+
+[33mcommit 1f6cc3b5cd10e965b2ec8b1d1ddebf4880485c91[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Sun May 24 15:23:40 2026 +0530
+
+    we have modified the file name home.jsx and home.scss by the claude using copoilit in the vs code itself it is useful for ui layer to attract the user
+
+[33mcommit c7c1fa34c349e74295724f548cc956261bd29b29[m[33m ([m[1;32magents/react-ui-layer-implementation-dc480a2a[m[33m)[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Thu May 21 20:29:34 2026 +0530
+
+    modification has been done
+
+[33mcommit 233bee512fee385ccd3737c5b6c83096d0cbf6f1[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Thu May 21 20:21:42 2026 +0530
+
+    we have modified the home.jsx and we want to update the style.scss and we want to change the ui design
+
+[33mcommit ba9c9b8ac84ae2ea7a83667549f807054f30dd67[m[33m ([m[1;32magents/react-ui-layer-implementation[m[33m)[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Thu May 21 00:47:24 2026 +0530
+
+    we have created two folder under the name of interview under that pages and services and in the pages we created a file name as home.jsx and we export that file in the app.routes so that we can display to the user still we having some error in that so we have to fix that
+
+[33mcommit 2d41dcc8a40201e1675b3c7cfd56abb0731e1d2b[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Wed May 20 20:47:29 2026 +0530
+
+    we have remove zod json schema in the file of ai.service.js
+
+[33mcommit b81e6257f43e58796ab86a1897022fa112588f21[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Wed May 20 20:46:23 2026 +0530
+
+    we have modified and passed the postman and it is visible to mongocompass it is worked we have changed the mongoose schema and remove zodtojson schema has been removed
+
+[33mcommit a213927e8df23b25a82c6659d71d3e11ff8ac48e[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Wed May 20 00:49:16 2026 +0530
+
+    we have modified the file using interviewReport.model.js, ai.service.js, both controller file
+
+[33mcommit 75abb29667a805774cbe409f32bbb6ca9f71c6a5[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Mon May 18 01:10:38 2026 +0530
+
+    we have created a file named as a interview.controller.js and file.middleware.js both have been updated on that
+
+[33mcommit 8b4a7ac4ae206315adefd6f8b430fd86d5953fb2[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Sun May 17 22:04:25 2026 +0530
+
+    updated the folder in this interview.routes.js
+
+[33mcommit 0892410a80c600cff077d4b5d940525b44040018[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Sun May 17 22:03:23 2026 +0530
+
+    we have modified app.js with the requirement of the basement of the app which we are creating on this
+
+[33mcommit 4c8e9f5f7ace8805ce61524a8597e5890309e918[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Sun May 17 21:53:24 2026 +0530
+
+    we have created a file interview.routes.js and interview.controller.js we have modified the server.js and install one package named as multer and it is install in backend and it is useful for read or other activities with pdf
+
+[33mcommit 12a16b3d5c9868d8953f5702cc20a1668f30b7cd[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Sun May 17 19:24:59 2026 +0530
+
+    we have modified the file  ai.service.js and succesfully worked in the backened server we changed the model of gemini 3-flash-review and it worked
+
+[33mcommit ee399ea0fde25ead47f95bd19c5039aa4385f50a[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Sat May 16 00:02:29 2026 +0530
+
+    we have modified the file ai.service.js is working not as much we need that's way still want to modified
+
+[33mcommit 83f3511133943cdcbfee1190da3c57918dd92a54[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Fri May 15 17:10:06 2026 +0530
+
+    i have upadated the ai.service.js files and deleted unnecessary code in it and some changes in temp.js in that jd has been changed
+
+[33mcommit 42ab5b8d9a7d4e82929c3b3da3a11c2aec93bf5f[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Fri May 15 01:14:05 2026 +0530
+
+    i have removed some data in the ai.service.js and added little bit of data init
+
+[33mcommit 3fef685e9f2242ccd728b218ffd5adb0a9000b20[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Thu May 14 00:32:30 2026 +0530
+
+    we have modified two  files in the aiservice and server.js
+
+[33mcommit e02ec0d4f2a1e1cc58072b9dce5388ec204fe06f[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Tue May 12 18:21:54 2026 +0530
+
+    ww have to modifie the data which was in the frame of ai.service.js we want to check the data base is coonecting or not
+
+[33mcommit 5042a27541c6f88a5fc29dfd438c6bd9bd5dc535[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Tue May 12 15:48:19 2026 +0530
+
+    we have modified the file named as temp.js jd has been edited
+
+[33mcommit 027490d5002d583f88807c3668ea10e49f190260[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Mon May 11 15:53:14 2026 +0530
+
+    some changes in ai services file
+
+[33mcommit d67b06137dd2e6acbd30d5e656559eccd6d5ac73[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Mon May 11 15:51:40 2026 +0530
+
+    we have done some insertion zod and zod to json schema to maintain the ai service work flow which will create a userfriendly experience
+
+[33mcommit 5c65e5faf51421ee7923c594de1bf22e138fb247[m[33m ([m[1;32mstatus[m[33m)[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Sun May 10 00:45:24 2026 +0530
+
+    we have import ai tool which is gemini ai and groqai and we have created a file under services named as  a temp.js and ai.services.js
+
+[33mcommit 42e68d6556d56310ca13e8394f83177ad4c2c1f8[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Fri May 8 22:20:18 2026 +0530
+
+    we created a file in models named as a interviewreport.model.js
+
+[33mcommit 5871c911b1e74bb97727b34fbbf7897cfd8e0e8d[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Fri May 8 16:56:15 2026 +0530
+
+    modified the authcontext.jsx
+
+[33mcommit 4b98cb8af29e1f6fd6010694e88381e3240407f8[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Fri May 8 14:22:37 2026 +0530
+
+    we have modified the authapi.js and register.jsx and authcontext
+
+[33mcommit 7bc3adb5b2d78dee6502deb55dec90cc1216fa1a[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Fri May 8 01:13:01 2026 +0530
+
+    created a new file in components named as protected.jsx and we have done some changes in other files like useauth, login , register,authapi, authcontext and for the main app.routes has also changed
+
+[33mcommit 3042c3fe6e00fc0f6a72784ff490e4ef3a899ab5[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Thu May 7 00:29:39 2026 +0530
+
+    we created useauth and main jsx have some applied on that
+
+[33mcommit 5971e23286de50af082826c200e1952b5e350cc4[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Wed May 6 13:39:25 2026 +0530
+
+    we have added the two way binding and we created a hooks which can automatically stores data and see what is happening in api context
+
+[33mcommit 225ac938d67dcc9c923d703cb32072dcf264f538[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Mon May 4 00:35:19 2026 +0530
+
+    created a file for taking with backend with the name of authcontext.jsx and useauth.js
+
+[33mcommit 3bb3c95fb180f6638de7e872da5712acf16f8102[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Sun May 3 15:41:08 2026 +0530
+
+    we have a folder which we want to FE to BE named as auth.api.js
+
+[33mcommit d728559eb9730b7a1d24f323972ce27fca3e5e44[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Sat May 2 00:30:47 2026 +0530
+
+    edited a page of login.jsx and register.jsx import the usenavigate and link after form we created a paragraph
+
+[33mcommit e9fa285d32bd8b23691498a37814ea9911d5e11e[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Fri May 1 23:59:27 2026 +0530
+
+    created a register page and done with basic styling in that ui
+
+[33mcommit c8876436be6abb5ed4ac0b9ee5f7e959429c0ea9[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Fri May 1 23:46:17 2026 +0530
+
+    created a button style page it is useful for all the images
+
+[33mcommit 307a543cdc4e7a5039db44305ceaace22f222b46[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Thu Apr 30 23:45:49 2026 +0530
+
+    we have now created  login, register and logout pages
+
+[33mcommit f9b6f751297c4e1bdcca7391e3457f240c0d9416[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Thu Apr 30 14:56:40 2026 +0530
+
+    we have created a forntend using vite and deleted unnecessary file in that after that we will write our code .
+
+[33mcommit d4481eaa857a72454b30555eb2c84b1228d2628d[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Thu Apr 30 14:37:26 2026 +0530
+
+    we have created a folder as a backend in that we want to stable for a server.js
+
+[33mcommit 730ac546d1faad95417c3614c2b8513a3cea1654[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Thu Apr 30 01:07:23 2026 +0530
+
+    we have done some changes in the authmiddleware i.e if the blacklist is in the proper syntax or not
+
+[33mcommit 60704d5d37f9ab05c585809eb757e812bffb73f6[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Thu Apr 30 00:51:08 2026 +0530
+
+    we added a middleware a new folder import and export
+
+[33mcommit fe2beffc05b5b8af4ce8938ad32e8318d4fc3897[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Thu Apr 30 00:12:52 2026 +0530
+
+    added cookie-parser in the appjs
+
+[33mcommit b9d2be0f3ab073a39a9f09977b8b01b47d7b6fa3[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Wed Apr 29 18:04:40 2026 +0530
+
+    I created a logout api controller
+
+[33mcommit b6ab6a00ae4a8a5016b179a4c39a91d84e7e80d7[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Wed Apr 29 17:21:59 2026 +0530
+
+    I created a blacklist model token cannot be accessed once my logout is done
+
+[33mcommit 9609f6f3a64e47f0dfb92e46cf660073f9c46d17[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Wed Apr 29 17:14:12 2026 +0530
+
+    No changes in auth controller
+
+[33mcommit 7cb20cef8ffb2ba6ab6f032734c34e9633498c4e[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Tue Apr 28 20:44:34 2026 +0530
+
+    ignore package-lock.json and package.json
+
+[33mcommit 8c3c428d52be57b9ee99db881e86b5791cc1dae8[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Tue Apr 28 20:38:46 2026 +0530
+
+    we have used the jsdocs comment for better understanding
+
+[33mcommit be0bc28ee88b4127f8a73b36babecbeccccbb59c[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Tue Apr 28 14:09:04 2026 +0530
+
+    Apply gitignore
+
+[33mcommit 9821cb4183e07c82b46ea1648ab459b3bdf31bd2[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Tue Apr 28 14:02:59 2026 +0530
+
+    Ignore .env and node_modules
+
+[33mcommit b885277be83c6da361e9d473ef4db75d9ab92b54[m
+Author: Balaji Reddy <balajireddy.m6@gmail.com>
+Date:   Tue Apr 28 13:46:26 2026 +0530
+
+    Nothing
