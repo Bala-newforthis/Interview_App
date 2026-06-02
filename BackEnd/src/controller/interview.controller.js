@@ -52,21 +52,35 @@ async function generateInterviewReportController(req, res) {
  */
 
 async function getInterviewReportByIdController(req, res) {
-   
-    const { interviewId } = req.params
+    try {
+        const { interviewId } = req.params;
 
-    const interviewReport = await interviewReportModel.findOne({ _id : interviewId, user : req.user.id})
-    
-    if (!interviewReport){
-        return res.status(404).json({
-            message : "Interview report not found ."
-        })
+        console.log("Received interviewId:", interviewId);
+        console.log("Logged in user:", req.user.id);
+
+        const interviewReport = await interviewReportModel.findOne({
+            _id: interviewId,
+            user: req.user.id
+        });
+
+        console.log("Mongo Result:", interviewReport);
+
+        if (!interviewReport) {
+            return res.status(404).json({
+                message: "Interview report not found."
+            });
+        }
+
+        res.status(200).json({
+            message: "Interview report fetched successfully.",
+            interviewReport
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: error.message
+        });
     }
-
-    res.status(200).json ({
-        message: "Interview report fetched successfully .",
-        interviewReport
-    })
 }
 
 /**
