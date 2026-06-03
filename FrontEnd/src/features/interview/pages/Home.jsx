@@ -2,11 +2,15 @@ import React, { useState, useEffect, useRef } from 'react'
 import "../style/home.scss"
 import { useInterview } from '../hooks/useInterview.js'
 import { useNavigate } from 'react-router'
+import { useAuth } from '../../auth/hooks/useauth.js'
 // import { report } from '../../../../../BackEnd/src/app.js'
 
 const Home = () => {
 
     const { loading, generateReport, reports, getReports } = useInterview()
+    const { handleLogout } = useAuth()
+    const [resumeName, setResumeName] = useState("")
+    const [uploadSuccess, setUploadSuccess] = useState(false)
     const [jobDescription, setJobDescription] = useState("")
     const [selfDescription, setSelfDescription] = useState("")
     const [showHistory, setShowHistory] = useState(false)
@@ -33,6 +37,17 @@ const Home = () => {
         if (data?._id) {
             await getReports()
             navigate(`/interview/${data._id}`)
+        }
+    }
+
+    const handleResumeChange = (e) => {
+        const file = e.target.files[0]
+        if (file) {
+            setResumeName(file.name)
+            setUploadSuccess(true)
+        } else {
+            setResumeName("")
+            setUploadSuccess(false)
         }
     }
 
@@ -80,7 +95,10 @@ const Home = () => {
                             <div className="upload-text">Click to upload or drag & drop</div>
                             <div className="upload-hint">PDF or DOCX (Max 5MB)</div>
                         </label>
-                        <input  ref = {resumeInputRef} hidden type="file" id="resume" accept=".pdf,.docx" />
+                        <input  ref = {resumeInputRef} hidden type="file" id="resume" accept=".pdf,.docx" onChange={handleResumeChange} />
+                        {uploadSuccess && (
+                            <div className="upload-success">Resume "{resumeName}" uploaded successfully.</div>
+                        )}
                     </div>
 
                     {/* Divider */}
@@ -121,9 +139,17 @@ const Home = () => {
                         <span className='history-count'>Showing latest {Math.min(reports.length, 5)} of {reports.length} saved reports</span>
                     )}
                 </div>
-                <button 
+                <div className="button-group">
+                    <button 
                         onClick={handleGenerateReport}
-                    className="btn-primary">★ Generate My Interview Strategy</button>
+                        className="btn-primary">★ Generate My Interview Strategy</button>
+                    <button 
+                        className="logout-button" 
+                        onClick={handleLogout}
+                    >
+                        Logout
+                    </button>
+                </div>
             </div>
 
             {showHistory && (
